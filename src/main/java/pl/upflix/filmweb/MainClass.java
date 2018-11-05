@@ -21,7 +21,7 @@ public class MainClass {
 	private static final int responseCode = 200;
 	
 	/**
-	 * 1. Check what happened here
+	 * 1. Check what happened here  - DONE
 	 * 2. Added loading List from file xls
 	 * 3. How should work
 	 * bash commend: file.java -path-to-xls-file
