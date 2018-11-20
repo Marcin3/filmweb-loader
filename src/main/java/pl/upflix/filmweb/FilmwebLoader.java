@@ -29,19 +29,17 @@ import pl.upflix.filmweb.rest.RestAction;
  **/
 public class FilmwebLoader {
 	
-	private static final String RECORDS_1 = "C:/Users/masf/Documents/Repozytoria/filmweb-loader/src/main/resources/pl/upflix/filmweb/movieFive.xls";
 	private static final String TITLE_PATTERN = "href(.*)title=\"([A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ0-9.,:\\s]{1,100})\"";
-	private static final String PATH_TO_SAVE = "C:/Users/masf/Documents/Repozytoria/filmweb-loader/src/main/resources/pl/upflix/filmweb/result/result.xls";
 	private static final Map<String, List<String>> resultMap = new HashMap<>();
 	
 	public static void main(final String[] args) {
-		final List<String> movieList = new LoadExcelFile(RECORDS_1).writeMovieToList()
+		final List<String> movieList = new LoadExcelFile(args[0]).writeMovieToList()
 				.getStringList();
 		movieList.forEach(FilmwebLoader::createHtmlAndAddToList);
 		resultMap.entrySet().removeIf(entry -> entry.getValue().size() == 0);
 		System.out.println("Create resultMap with size: " + resultMap.size());
 		new WriteIntoExcel().createWorkBook(resultMap)
-				.saveToFile(PATH_TO_SAVE);
+				.saveToFile(args[1]);
 	}
 	
 	private static List<String> getTitleFromHtml(final String html) {
