@@ -14,8 +14,8 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class LoadExcelFile {
 	private final String path;
-	private Sheet sheet;
 	private final List<String> stringList = new ArrayList<>();
+	private Sheet sheet;
 	
 	public LoadExcelFile(final String path) {
 		this.path = path;
@@ -26,7 +26,7 @@ public class LoadExcelFile {
 	}
 	
 	public LoadExcelFile writeMovieToList() {
-		sheet = createSheet();
+		createSheet();
 		for (final Row row : sheet) {
 			final String cellValue = "".equals(getOriginalTitle(row)) ? getPolishTitle(row) : getOriginalTitle(row);
 			stringList.add(cellValue);
@@ -34,14 +34,14 @@ public class LoadExcelFile {
 		return this;
 	}
 	
-	private Sheet createSheet() {
+	private void createSheet() {
 		try {
 			sheet = WorkbookFactory.create(new File(path))
 					.getSheetAt(0);
-		} catch (final IOException e) {
+		}
+		catch (final IOException e) {
 			e.printStackTrace();
 		}
-		return sheet;
 	}
 	
 	private String getPolishTitle(final Row row) {
