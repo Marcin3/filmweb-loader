@@ -11,7 +11,7 @@ public class RestAction {
 	}
 	
 	public String createURL(final String movie) {
-		return "https://upflix.pl/" + movie;
+		return "https://upflix.pl/" + movie.replace("?", "%3F");
 	}
 	
 	public String getHtmlFromURL(final String url) {
