@@ -22,7 +22,7 @@ public class RestActionTest {
 	}
 
 	@DataProvider(name = "correctResponse")
-	public Object[][] createData1() {
+	public Object[][] basicData() {
 		return new Object[][]{
 				{"znalezionych tytułów: 1"},
 				{"Lista filmów i seriali VOD w Polsce | Najnowsze zmiany"},
