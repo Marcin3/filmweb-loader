@@ -11,7 +11,7 @@
 	<properties>
 		<maven.compiler.source>1.10</maven.compiler.source>
 		<maven.compiler.target>1.10</maven.compiler.target>
-		<org.apache.poi.version>4.0.0</org.apache.poi.version>
+		<org.apache.poi.version>5.4.0</org.apache.poi.version>
 	</properties>
 
 	<build>
